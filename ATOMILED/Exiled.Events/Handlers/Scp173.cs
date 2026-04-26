@@ -95,3 +95,4 @@ namespace Atomiled.Events.Handlers
         public static void OnRemovedObserver(RemovedObserverEventArgs ev) => RemovedObserver.InvokeSafely(ev);
     }
 }
+

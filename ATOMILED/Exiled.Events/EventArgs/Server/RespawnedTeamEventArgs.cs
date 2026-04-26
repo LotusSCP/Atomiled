@@ -18,7 +18,7 @@ namespace Atomiled.Events.EventArgs.Server
     /// <summary>
     /// Contains all information after team spawns.
     /// </summary>
-    public class RespawnedTeamEventArgs : IExiledEvent
+    public class RespawnedTeamEventArgs : IAtomiledEvent
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RespawnedTeamEventArgs"/> class.
@@ -42,3 +42,4 @@ namespace Atomiled.Events.EventArgs.Server
         public SpawnableWaveBase Wave { get; }
     }
 }
+

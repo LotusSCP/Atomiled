@@ -24,7 +24,7 @@ namespace Atomiled.Events.EventArgs.Player
     /// <summary>
     /// Contains all information before pre-authenticating a player.
     /// </summary>
-    public class PreAuthenticatingEventArgs : IExiledEvent
+    public class PreAuthenticatingEventArgs : IAtomiledEvent
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PreAuthenticatingEventArgs"/> class.

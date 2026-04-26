@@ -14,9 +14,7 @@ namespace Atomiled.Events.Patches.Events.Scp914
     using Atomiled.API.Features.Pools;
     using Atomiled.Events.Attributes;
     using Atomiled.Events.EventArgs.Scp914;
-
     using global::Scp914;
-
     using HarmonyLib;
 
     using static HarmonyLib.AccessTools;
@@ -39,8 +37,8 @@ namespace Atomiled.Events.Patches.Events.Scp914
 
             Label ret = generator.DefineLabel();
 
-            int offset = 1;
-            int index = newInstructions.FindLastIndex(i => i.opcode == OpCodes.Stloc_1) + offset;
+            int offset = -3;
+            int index = newInstructions.FindLastIndex(i => i.OperandIs(GetDeclaredConstructors(typeof(LabApi.Events.Arguments.Scp914Events.Scp914KnobChangingEventArgs))[0])) + offset;
 
             newInstructions.InsertRange(index, new[]
             {
@@ -75,7 +73,7 @@ namespace Atomiled.Events.Patches.Events.Scp914
             });
 
             offset = -3;
-            index = newInstructions.FindLastIndex(i => i.opcode == OpCodes.Newobj) + offset;
+            index = newInstructions.FindLastIndex(i => i.OperandIs(GetDeclaredConstructors(typeof(LabApi.Events.Arguments.Scp914Events.Scp914ActivatingEventArgs))[0])) + offset;
 
             newInstructions.InsertRange(index, new[]
             {

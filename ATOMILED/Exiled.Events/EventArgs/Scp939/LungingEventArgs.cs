@@ -37,3 +37,4 @@ namespace Atomiled.Events.EventArgs.Scp939
         public Scp939Role Scp939 { get; }
     }
 }
+

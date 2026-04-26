@@ -40,3 +40,4 @@ namespace Atomiled.Events.EventArgs.Scp079
         public bool IsAutomatic { get; }
     }
 }
+

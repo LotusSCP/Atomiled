@@ -45,3 +45,4 @@ namespace Atomiled.Events.EventArgs.Player
         public UncuffReason UncuffReason { get; }
     }
 }
+

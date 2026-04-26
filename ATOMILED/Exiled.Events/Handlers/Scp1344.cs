@@ -73,3 +73,4 @@ namespace Atomiled.Events.Handlers
         public static void OnChangedStatus(ChangedStatusEventArgs ev) => ChangedStatus.InvokeSafely(ev);
     }
 }
+

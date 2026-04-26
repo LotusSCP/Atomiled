@@ -15,7 +15,7 @@ namespace Atomiled.Events.EventArgs.Map
     /// <summary>
     /// Contains all information for when the server is turned a pickup into a live grenade.
     /// </summary>
-    public class ChangedIntoGrenadeEventArgs : IExiledEvent, IPickupEvent
+    public class ChangedIntoGrenadeEventArgs : IAtomiledEvent, IPickupEvent
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ChangedIntoGrenadeEventArgs"/> class.
@@ -42,3 +42,4 @@ namespace Atomiled.Events.EventArgs.Map
         Pickup IPickupEvent.Pickup => Pickup;
     }
 }
+

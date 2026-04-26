@@ -15,7 +15,7 @@ namespace Atomiled.Events.EventArgs.Map
     /// <summary>
     /// Contains all information before C.A.S.S.I.E announces light containment zone decontamination.
     /// </summary>
-    public class AnnouncingDecontaminationEventArgs : IExiledEvent
+    public class AnnouncingDecontaminationEventArgs : IAtomiledEvent
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="AnnouncingDecontaminationEventArgs" /> class.

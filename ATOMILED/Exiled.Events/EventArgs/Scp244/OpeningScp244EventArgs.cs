@@ -39,3 +39,4 @@ namespace Atomiled.Events.EventArgs.Scp244
         public bool IsAllowed { get; set; } = true;
     }
 }
+

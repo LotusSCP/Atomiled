@@ -42,7 +42,7 @@ namespace Atomiled.Events.Handlers.Internal
     internal static class Round
     {
         /// <inheritdoc cref="Handlers.Player.OnUsedItem" />
-        public static void OnServerOnUsingCompleted(ReferenceHub hub, UsableItem usable) => Handlers.Player.OnUsedItem(new (hub, usable));
+        public static void OnServerOnUsingCompleted(ReferenceHub hub, UsableItem usable) => Handlers.Player.OnUsedItem(new (hub, usable, false));
 
         /// <inheritdoc cref="Handlers.Server.OnWaitingForPlayers" />
         public static void OnWaitingForPlayers()
@@ -57,6 +57,9 @@ namespace Atomiled.Events.Handlers.Internal
                 TranslationManager.Reload();
 
             RoundSummary.RoundLock = false;
+
+            if (Events.Instance.Config.Debug)
+                Patches.Events.Map.Generating.Benchmark();
         }
 
         /// <inheritdoc cref="Handlers.Server.OnRestartingRound" />
@@ -82,7 +85,7 @@ namespace Atomiled.Events.Handlers.Internal
         /// <inheritdoc cref="Handlers.Player.OnChangingRole(ChangingRoleEventArgs)" />
         public static void OnChangingRole(ChangingRoleEventArgs ev)
         {
-            if (!ev.Player.IsHost && ev.NewRole == RoleTypeId.Spectator && ev.Reason != API.Enums.SpawnReason.Destroyed && Events.Instance.Config.ShouldDropInventory)
+            if (!ev.Player.IsHost && ev.NewRole == RoleTypeId.Spectator && ev.Reason is not SpawnReason.Destroyed && Events.Instance.Config.ShouldDropInventory)
                 ev.Player.Inventory.ServerDropEverything();
         }
 
@@ -170,3 +173,4 @@ namespace Atomiled.Events.Handlers.Internal
         }
     }
 }
+

@@ -27,8 +27,8 @@ namespace Atomiled.Events.Patches.Fixes
     {
         private static void Prefix(PlayerStats __instance, ref DamageHandlerBase handler)
         {
-            if (!DamageHandlers.IdsByTypeHash.ContainsKey(handler.GetType().FullName.GetStableHashCode()) && handler is GenericDamageHandler exiledHandler)
-                handler = exiledHandler.Base;
+            if (!DamageHandlers.IdsByTypeHash.ContainsKey(handler.GetType().FullName.GetStableHashCode()) && handler is GenericDamageHandler AtomiledHandler)
+                handler = AtomiledHandler.Base;
         }
     }
 }

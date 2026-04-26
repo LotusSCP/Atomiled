@@ -12,7 +12,7 @@ namespace Atomiled.Events.EventArgs.Interfaces
     /// <summary>
     /// Event args used for all <see cref="API.Features.Room" /> related events.
     /// </summary>
-    public interface IRoomEvent : IExiledEvent
+    public interface IRoomEvent : IAtomiledEvent
     {
         /// <summary>
         /// Gets the <see cref="API.Features.Room" /> that is a part of the event.

@@ -57,9 +57,9 @@ namespace Atomiled.Events
         public bool CanFlashbangsAffectThrower { get; set; } = false;
 
         /// <summary>
-        /// Gets or sets a value indicating whether the name tracking (invisible AT version string added to the end of the server name) is enabled or not.
+        /// Gets or sets a value indicating whether the name tracking (invisible ATOMILED version string added to the end of the server name) is enabled or not.
         /// </summary>
-        [Description("Indicates whether the name tracking (invisible EXILED version string added to the end of the server name) is enabled or not")]
+        [Description("Indicates whether the name tracking (invisible ATOMILED version string added to the end of the server name) is enabled or not")]
         public bool IsNameTrackingEnabled { get; set; } = true;
 
         /// <summary>
@@ -112,3 +112,4 @@ namespace Atomiled.Events
         public bool LogRaCommands { get; set; } = true;
     }
 }
+

@@ -42,3 +42,4 @@ namespace Atomiled.Events.EventArgs.Scp1344
         public Scp1344 Scp1344 { get; }
     }
 }
+

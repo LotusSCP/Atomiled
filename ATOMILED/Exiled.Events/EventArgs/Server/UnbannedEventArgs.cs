@@ -12,7 +12,7 @@ namespace Atomiled.Events.EventArgs.Server
     /// <summary>
     /// Contains all information after a player gets unbanned.
     /// </summary>
-    public class UnbannedEventArgs : IExiledEvent
+    public class UnbannedEventArgs : IAtomiledEvent
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnbannedEventArgs"/> class.

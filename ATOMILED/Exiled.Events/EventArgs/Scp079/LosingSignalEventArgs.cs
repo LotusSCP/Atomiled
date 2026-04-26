@@ -42,3 +42,4 @@ namespace Atomiled.Events.EventArgs.Scp079
         public API.Features.Roles.Scp079Role Scp079 { get; }
     }
 }
+

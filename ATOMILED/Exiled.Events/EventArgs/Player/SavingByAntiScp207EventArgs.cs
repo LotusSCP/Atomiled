@@ -72,3 +72,4 @@ namespace Atomiled.Events.EventArgs.Player
         public bool IsAllowed { get; set; }
     }
 }
+

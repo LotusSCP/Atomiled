@@ -109,3 +109,4 @@ namespace Atomiled.Events.Patches.Events.Scp1344
         }
     }
 }
+

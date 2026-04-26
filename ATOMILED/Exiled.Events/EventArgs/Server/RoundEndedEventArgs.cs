@@ -14,7 +14,7 @@ namespace Atomiled.Events.EventArgs.Server
     /// <summary>
     /// Contains all information after the end of a round.
     /// </summary>
-    public class RoundEndedEventArgs : IExiledEvent
+    public class RoundEndedEventArgs : IAtomiledEvent
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="RoundEndedEventArgs" /> class.

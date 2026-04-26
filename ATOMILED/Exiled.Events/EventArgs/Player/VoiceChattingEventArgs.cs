@@ -25,21 +25,17 @@ namespace Atomiled.Events.EventArgs.Player
         /// <param name="player">
         /// <inheritdoc cref="Player" />
         /// </param>
-        /// <param name="voiceMessage">
-        /// <inheritdoc cref="VoiceMessage" />
-        /// </param>
         /// <param name="voiceModule">
         /// <inheritdoc cref="VoiceModule" />
         /// </param>
-        /// <param name="isAllowed">
-        /// <inheritdoc cref="IsAllowed" />
+        /// <param name="voiceMessage">
+        /// <inheritdoc cref="VoiceMessage" />
         /// </param>
-        public VoiceChattingEventArgs(Player player, VoiceMessage voiceMessage, VoiceModuleBase voiceModule, bool isAllowed = true)
+        public VoiceChattingEventArgs(Player player, VoiceModuleBase voiceModule, VoiceMessage voiceMessage)
         {
             Player = player;
             VoiceMessage = voiceMessage;
             VoiceModule = voiceModule;
-            IsAllowed = isAllowed;
         }
 
         /// <summary>
@@ -60,6 +56,7 @@ namespace Atomiled.Events.EventArgs.Player
         /// <summary>
         /// Gets or sets a value indicating whether the player can voicechat.
         /// </summary>
-        public bool IsAllowed { get; set; }
+        public bool IsAllowed { get; set; } = true;
     }
 }
+

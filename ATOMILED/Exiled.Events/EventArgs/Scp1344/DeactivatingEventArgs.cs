@@ -7,8 +7,11 @@
 
 namespace Atomiled.Events.EventArgs.Scp1344
 {
+    using Atomiled.API.Features;
     using Atomiled.API.Features.Items;
     using Atomiled.Events.EventArgs.Interfaces;
+
+    using InventorySystem.Items.Usables.Scp1344;
 
     /// <summary>
     /// Contains all information before deactivating.
@@ -36,14 +39,20 @@ namespace Atomiled.Events.EventArgs.Scp1344
         /// <summary>
         /// Gets the player in owner of the item.
         /// </summary>
-        public Atomiled.API.Features.Player Player { get; }
+        public Player Player { get; }
 
         /// <summary>
         /// Gets Scp1344 item.
         /// </summary>
         public Scp1344 Scp1344 { get; }
 
+        /// <summary>
+        /// Gets or sets the status of the SCP-1344 after the deactivation process.
+        /// </summary>
+        public Scp1344Status NewStatus { get; set; } = Scp1344Status.Active;
+
         /// <inheritdoc/>
         public bool IsAllowed { get; set; }
     }
 }
+

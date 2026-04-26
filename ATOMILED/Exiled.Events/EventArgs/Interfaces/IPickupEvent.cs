@@ -12,7 +12,7 @@ namespace Atomiled.Events.EventArgs.Interfaces
     /// <summary>
     /// Event args used for all <see cref="API.Features.Pickups.Pickup" /> related events.
     /// </summary>
-    public interface IPickupEvent : IExiledEvent
+    public interface IPickupEvent : IAtomiledEvent
     {
         /// <summary>
         /// Gets the <see cref="API.Features.Pickups.Pickup" /> triggering the event.

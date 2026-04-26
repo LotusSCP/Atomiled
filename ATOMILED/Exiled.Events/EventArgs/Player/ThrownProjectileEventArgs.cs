@@ -55,3 +55,4 @@ namespace Atomiled.Events.EventArgs.Player
         public Pickup Pickup => Projectile;
     }
 }
+

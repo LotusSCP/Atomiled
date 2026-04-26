@@ -32,8 +32,8 @@ namespace Atomiled.Events.Attributes
         }
 
         /// <summary>
-        /// Gets the <see cref="IExiledEvent"/> that will be raised by this patch.
+        /// Gets the <see cref="IAtomiledEvent"/> that will be raised by this patch.
         /// </summary>
-        internal IExiledEvent Event => (IExiledEvent)handlerType.GetProperty(eventName)?.GetValue(null);
+        internal IAtomiledEvent Event => (IAtomiledEvent)handlerType.GetProperty(eventName)?.GetValue(null);
     }
 }

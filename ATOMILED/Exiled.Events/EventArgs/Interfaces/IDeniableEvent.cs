@@ -10,7 +10,7 @@ namespace Atomiled.Events.EventArgs.Interfaces
     /// <summary>
     /// Event args for events that can be allowed or denied.
     /// </summary>
-    public interface IDeniableEvent : IExiledEvent
+    public interface IDeniableEvent : IAtomiledEvent
     {
         /// <summary>
         /// Gets or sets a value indicating whether the event is allowed to continue.

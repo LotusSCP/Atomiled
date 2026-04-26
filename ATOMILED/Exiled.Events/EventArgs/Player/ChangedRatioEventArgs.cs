@@ -52,3 +52,4 @@ namespace Atomiled.Events.EventArgs.Player
         public AspectRatioType NewRatio { get; }
     }
 }
+

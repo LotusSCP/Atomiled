@@ -55,3 +55,4 @@ namespace Atomiled.Events.EventArgs.Scp173
         public Scp173Role Scp173 { get; }
     }
 }
+

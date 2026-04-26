@@ -22,7 +22,7 @@ namespace Atomiled.Events.Patches.Events.Map
 
     using static HarmonyLib.AccessTools;
 
-    using ExiledEvents = Atomiled.Events.Events;
+    using AtomiledEvents = Atomiled.Events.Events;
 
     /// <summary>
     /// Patches <see cref="FlashbangGrenade.ServerFuseEnd()"/>.
@@ -49,7 +49,7 @@ namespace Atomiled.Events.Patches.Events.Map
                     new CodeInstruction(OpCodes.Ldloc_0),
                     new(OpCodes.Call, Method(typeof(ExplodingFlashGrenade), nameof(ProcessEvent))),
 
-                    // ignore the foreach since exiled overwrite it
+                    // ignore the foreach since Atomiled overwrite it
                     new(OpCodes.Br_S, ignoreLabel),
                 });
 
@@ -69,7 +69,7 @@ namespace Atomiled.Events.Patches.Events.Map
                 if ((instance.transform.position - player.Position).sqrMagnitude > distance)
                     continue;
 
-                if (!ExiledEvents.Instance.Config.CanFlashbangsAffectThrower && instance.PreviousOwner.CompareLife(player.ReferenceHub))
+                if (!AtomiledEvents.Instance.Config.CanFlashbangsAffectThrower && instance.PreviousOwner.CompareLife(player.ReferenceHub))
                     continue;
 
                 if (!IndividualFriendlyFire.CheckFriendlyFirePlayer(instance.PreviousOwner, player.ReferenceHub) && !instance.PreviousOwner.CompareLife(player.ReferenceHub))

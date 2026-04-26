@@ -57,3 +57,4 @@ namespace Atomiled.Events.EventArgs.Scp1344
         public bool IsAllowed { get; set; }
     }
 }
+

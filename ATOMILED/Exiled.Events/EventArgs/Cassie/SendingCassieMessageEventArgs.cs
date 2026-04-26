@@ -127,7 +127,7 @@ namespace Atomiled.Events.EventArgs.Cassie
         /// <summary>
         /// Gets or sets a value indicating whether the event can be executed.
         /// </summary>
-        [Obsolete("Useless and will be removed in Exiled 10.")]
+        [Obsolete("Useless and will be removed in Atomiled 10.")]
         public bool IsCustomAnnouncement { get; set; }
 
         /// <summary>

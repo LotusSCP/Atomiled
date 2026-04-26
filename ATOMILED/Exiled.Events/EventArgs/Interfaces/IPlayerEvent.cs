@@ -12,7 +12,7 @@ namespace Atomiled.Events.EventArgs.Interfaces
     /// <summary>
     /// Event args used for all <see cref="API.Features.Player" /> related events.
     /// </summary>
-    public interface IPlayerEvent : IExiledEvent
+    public interface IPlayerEvent : IAtomiledEvent
     {
         /// <summary>
         /// Gets the <see cref="API.Features.Player" /> triggering the event.

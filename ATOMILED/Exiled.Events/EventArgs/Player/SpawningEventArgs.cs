@@ -76,3 +76,4 @@ namespace Atomiled.Events.EventArgs.Player
         public Role NewRole { get; }
     }
 }
+

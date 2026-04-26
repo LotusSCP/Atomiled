@@ -12,7 +12,7 @@ namespace Atomiled.Events.EventArgs.Interfaces
     /// <summary>
     /// Event args used for all <see cref="API.Features.Generator" /> related events.
     /// </summary>
-    public interface IGeneratorEvent : IExiledEvent
+    public interface IGeneratorEvent : IAtomiledEvent
     {
         /// <summary>
         /// Gets the <see cref="API.Features.Generator" /> triggering the event.

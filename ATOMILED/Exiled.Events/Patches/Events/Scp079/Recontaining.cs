@@ -66,3 +66,4 @@ namespace Atomiled.Events.Patches.Events.Scp079
         }
     }
 }
+

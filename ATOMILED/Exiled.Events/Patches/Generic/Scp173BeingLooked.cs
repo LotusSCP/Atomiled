@@ -20,7 +20,7 @@ namespace Atomiled.Events.Patches.Generic
 
     using static HarmonyLib.AccessTools;
 
-    using ExiledEvents = Atomiled.Events.Events;
+    using AtomiledEvents = Atomiled.Events.Events;
     using Scp173Role = API.Features.Roles.Scp173Role;
 
     /// <summary>
@@ -69,7 +69,7 @@ namespace Atomiled.Events.Patches.Generic
 
         private static bool HelpMethod(Scp173ObserversTracker instance, ReferenceHub targetHub)
         {
-            return Player.Get(targetHub) is Player player && ((player.Role.Type == RoleTypeId.Tutorial && !ExiledEvents.Instance.Config.CanTutorialBlockScp173) || Scp173Role.TurnedPlayers.Contains(player)) && instance.IsObservedBy(targetHub, Scp173ObserversTracker.WidthMultiplier);
+            return Player.Get(targetHub) is Player player && ((player.Role.Type == RoleTypeId.Tutorial && !AtomiledEvents.Instance.Config.CanTutorialBlockScp173) || Scp173Role.TurnedPlayers.Contains(player)) && instance.IsObservedBy(targetHub, Scp173ObserversTracker.WidthMultiplier);
         }
     }
 }

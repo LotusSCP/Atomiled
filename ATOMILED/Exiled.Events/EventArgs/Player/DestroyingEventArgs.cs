@@ -36,3 +36,4 @@ namespace Atomiled.Events.EventArgs.Player
         public Player Player { get; }
     }
 }
+

@@ -123,3 +123,4 @@ namespace Atomiled.Events.Patches.Events.Server
         private static ReferenceHub[] GetHubs(List<Player> players) => players.Select(player => player.ReferenceHub).ToArray();
     }
 }
+

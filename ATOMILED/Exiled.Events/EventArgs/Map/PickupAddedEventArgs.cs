@@ -33,3 +33,4 @@ namespace Atomiled.Events.EventArgs.Map
         public Pickup Pickup { get; }
     }
 }
+

@@ -33,7 +33,7 @@ namespace Atomiled.Events.Features
         /// </summary>
         internal Patcher()
         {
-            Harmony = new($"exiled.events.{++patchesCounter}");
+            Harmony = new($"Atomiled.events.{++patchesCounter}");
         }
 
         /// <summary>
@@ -42,7 +42,7 @@ namespace Atomiled.Events.Features
         public static HashSet<Type> UnpatchedTypes { get; private set; } = GetAllPatchTypes();
 
         /// <summary>
-        /// Gets a set of types and methods for which EXILED patches should not be run.
+        /// Gets a set of types and methods for which ATOMILED patches should not be run.
         /// </summary>
         public static HashSet<MethodBase> DisabledPatchesHashSet { get; } = new();
 
@@ -52,10 +52,10 @@ namespace Atomiled.Events.Features
         public Harmony Harmony { get; }
 
         /// <summary>
-        /// Patches all events that target a specific <see cref="IExiledEvent"/>.
+        /// Patches all events that target a specific <see cref="IAtomiledEvent"/>.
         /// </summary>
-        /// <param name="event">The <see cref="IExiledEvent"/> all matching patches should target.</param>
-        public void Patch(IExiledEvent @event)
+        /// <param name="event">The <see cref="IAtomiledEvent"/> all matching patches should target.</param>
+        public void Patch(IAtomiledEvent @event)
         {
             try
             {
@@ -124,7 +124,7 @@ namespace Atomiled.Events.Features
         }
 
         /// <summary>
-        /// Checks the <see cref="DisabledPatchesHashSet"/> list and un-patches any methods that have been defined there. Once un-patching has been done, they can be patched by plugins, but will not be re-patchable by Exiled until a server reboot.
+        /// Checks the <see cref="DisabledPatchesHashSet"/> list and un-patches any methods that have been defined there. Once un-patching has been done, they can be patched by plugins, but will not be re-patchable by Atomiled until a server reboot.
         /// </summary>
         public void ReloadDisabledPatches()
         {
@@ -155,3 +155,4 @@ namespace Atomiled.Events.Features
         internal static HashSet<Type> GetAllPatchTypes() => Assembly.GetExecutingAssembly().GetTypes().Where((type) => type.CustomAttributes.Any((customAtt) => customAtt.AttributeType == typeof(HarmonyPatch))).ToHashSet();
     }
 }
+

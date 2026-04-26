@@ -35,7 +35,7 @@ namespace Atomiled.Events.Patches.Events.Player
 
             LocalBuilder labEvent = generator.DeclareLocal(typeof(PlayerInteractedDoorEventArgs));
 
-            Label exiledEvContinue = generator.DefineLabel();
+            Label AtomiledEvContinue = generator.DefineLabel();
             Label labEvContinue = generator.DefineLabel();
 
             int offset = -3;
@@ -79,12 +79,12 @@ namespace Atomiled.Events.Patches.Events.Player
                     // if (ev.CanInteract) goto continueLabel
                     // else return
                     new(OpCodes.Callvirt, PropertyGetter(typeof(InteractingDoorEventArgs), nameof(InteractingDoorEventArgs.CanInteract))),
-                    new(OpCodes.Brtrue_S, exiledEvContinue),
+                    new(OpCodes.Brtrue_S, AtomiledEvContinue),
                     new(OpCodes.Pop),
                     new(OpCodes.Ret),
 
                     // canOpen = ev.IsAllowed
-                    new CodeInstruction(OpCodes.Callvirt, PropertyGetter(typeof(InteractingDoorEventArgs), nameof(InteractingDoorEventArgs.IsAllowed))).WithLabels(exiledEvContinue),
+                    new CodeInstruction(OpCodes.Callvirt, PropertyGetter(typeof(InteractingDoorEventArgs), nameof(InteractingDoorEventArgs.IsAllowed))).WithLabels(AtomiledEvContinue),
                     new(OpCodes.Stloc_0),
 
                     // hub

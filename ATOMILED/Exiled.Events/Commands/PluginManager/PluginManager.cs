@@ -40,3 +40,4 @@ namespace Atomiled.Events.Commands.PluginManager
         }
     }
 }
+

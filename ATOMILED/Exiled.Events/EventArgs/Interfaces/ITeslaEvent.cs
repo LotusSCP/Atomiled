@@ -12,7 +12,7 @@ namespace Atomiled.Events.EventArgs.Interfaces
     /// <summary>
     /// Event args used for all <see cref="TeslaGate" /> related events.
     /// </summary>
-    public interface ITeslaEvent : IExiledEvent
+    public interface ITeslaEvent : IAtomiledEvent
     {
         /// <summary>
         /// Gets the <see cref="TeslaGate" /> triggering the event.

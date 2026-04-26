@@ -70,3 +70,4 @@ namespace Atomiled.Events.Patches.Events.Scp3114
         }
     }
 }
+

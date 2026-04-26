@@ -103,3 +103,4 @@ namespace Atomiled.Events.EventArgs.Server
         public Queue<RoleTypeId> SpawnQueue { get; set; }
     }
 }
+

@@ -66,3 +66,4 @@ namespace Atomiled.Events.EventArgs.Item
         public bool IsAllowed { get; set; }
     }
 }
+

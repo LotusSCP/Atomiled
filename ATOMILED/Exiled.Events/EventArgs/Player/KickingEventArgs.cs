@@ -130,7 +130,7 @@ namespace Atomiled.Events.EventArgs.Player
         /// <param name="message">The message to be logged.</param>
         protected void LogBanChange(string assemblyName, string message)
         {
-            if (assemblyName != "Exiled.Events")
+            if (assemblyName != "Atomiled.Events")
             {
                 lock (ServerLogs.LockObject)
                 {

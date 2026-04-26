@@ -1,12 +1,12 @@
 ---
-title: Installing EXILED
+title: Installing ATOMILED
 ---
 
-# Installing EXILED
+# Installing ATOMILED
 
 ## Automatic Installation
 
-Exiled has a tool that allows you to install **automatically** the framework for you.
+Atomiled has a tool that allows you to install **automatically** the framework for you.
 
 ## Guides
 

@@ -12,7 +12,7 @@ namespace Atomiled.Events.EventArgs.Interfaces
     /// <summary>
     /// Event args used for all <see cref="API.Features.Doors.Door" /> related events.
     /// </summary>
-    public interface IDoorEvent : IExiledEvent
+    public interface IDoorEvent : IAtomiledEvent
     {
         /// <summary>
         /// Gets the <see cref="API.Features.Doors.Door" /> triggering the event.

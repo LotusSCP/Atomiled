@@ -20,7 +20,7 @@ namespace Atomiled.Events.Patches.Generic
 
     using static HarmonyLib.AccessTools;
 
-    using ExiledEvents = Atomiled.Events.Events;
+    using AtomiledEvents = Atomiled.Events.Events;
 
     /// <summary>
     /// Patches <see cref="Scp049SenseAbility.CanFindTarget(out ReferenceHub)"/>.
@@ -40,7 +40,7 @@ namespace Atomiled.Events.Patches.Generic
 
             index += 1;
 
-            // if ((referenceHub.roleManager.CurrentRole.RoleTypeId == RoleTypeId.Tutorial && ExiledEvents.Instance.Config.CanScp049SenseTutorial) || Scp049Role.TurnedPlayers.Contains(Player.Get(referenceHub)))
+            // if ((referenceHub.roleManager.CurrentRole.RoleTypeId == RoleTypeId.Tutorial && AtomiledEvents.Instance.Config.CanScp049SenseTutorial) || Scp049Role.TurnedPlayers.Contains(Player.Get(referenceHub)))
             //     return;
             newInstructions.InsertRange(
                 index,
@@ -54,8 +54,8 @@ namespace Atomiled.Events.Patches.Generic
                     new(OpCodes.Ldc_I4_S, (sbyte)RoleTypeId.Tutorial),
                     new(OpCodes.Bne_Un_S, skip),
 
-                    // if (!ExiledEvents.Instance.Config.CanScp049SenseTutorial)
-                    new(OpCodes.Call, PropertyGetter(typeof(ExiledEvents), nameof(ExiledEvents.Instance))),
+                    // if (!AtomiledEvents.Instance.Config.CanScp049SenseTutorial)
+                    new(OpCodes.Call, PropertyGetter(typeof(AtomiledEvents), nameof(AtomiledEvents.Instance))),
                     new(OpCodes.Callvirt, PropertyGetter(typeof(Plugin<Config>), nameof(Plugin<Config>.Config))),
                     new(OpCodes.Callvirt, PropertyGetter(typeof(Config), nameof(Config.CanScp049SenseTutorial))),
                     new(OpCodes.Brfalse_S, continueLabel),

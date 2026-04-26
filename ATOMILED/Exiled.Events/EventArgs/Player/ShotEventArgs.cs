@@ -107,3 +107,4 @@ namespace Atomiled.Events.EventArgs.Player
         public bool CanSpawnImpactEffects { get; set; } = true;
     }
 }
+

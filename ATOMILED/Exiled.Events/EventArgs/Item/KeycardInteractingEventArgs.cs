@@ -27,6 +27,7 @@ namespace Atomiled.Events.EventArgs.Item
         /// <param name="player"><inheritdoc cref="Player"/></param>
         /// <param name="door"><inheritdoc cref="Door"/></param>
         /// <param name="isAllowed"><inheritdoc cref="IsAllowed"/></param>
+        /// <seealso cref="EventArgs.Player.InteractingDoorEventArgs"/>
         public KeycardInteractingEventArgs(BaseKeycardPickup pickup, Player player, DoorVariant door, bool isAllowed = true)
         {
             KeycardPickup = Pickup.Get<KeycardPickup>(pickup);

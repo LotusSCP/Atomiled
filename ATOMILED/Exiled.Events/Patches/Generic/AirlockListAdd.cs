@@ -33,7 +33,7 @@ namespace Atomiled.Events.Patches.Generic
     {
         private static void Postfix(AirlockController __instance)
         {
-            API.Features.Doors.AirlockController.BaseToExiledControllers.Remove(__instance);
+            API.Features.Doors.AirlockController.BaseToAtomiledControllers.Remove(__instance);
         }
     }
 }

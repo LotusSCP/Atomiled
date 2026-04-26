@@ -20,7 +20,7 @@ namespace Atomiled.Events.Patches.Generic
 
     using static HarmonyLib.AccessTools;
 
-    using ExiledEvents = Atomiled.Events.Events;
+    using AtomiledEvents = Atomiled.Events.Events;
 
     /// <summary>
     /// Patches <see cref="Scp079ScannerTracker.AddTarget(ReferenceHub)"/>.
@@ -35,7 +35,7 @@ namespace Atomiled.Events.Patches.Generic
             Label returnLabel = generator.DefineLabel();
             Label skip = generator.DefineLabel();
 
-            // if ((referenceHub.roleManager.CurrentRole.RoleTypeId == RoleTypeId.Tutorial && ExiledEvents.Instance.Config.TutorialNotAffectedByScp079Scan) || Scp079Role.TurnedPlayers.Contains(Player.Get(referenceHub)))
+            // if ((referenceHub.roleManager.CurrentRole.RoleTypeId == RoleTypeId.Tutorial && AtomiledEvents.Instance.Config.TutorialNotAffectedByScp079Scan) || Scp079Role.TurnedPlayers.Contains(Player.Get(referenceHub)))
             //     return;
             newInstructions.InsertRange(
                 0,
@@ -49,8 +49,8 @@ namespace Atomiled.Events.Patches.Generic
                     new(OpCodes.Ldc_I4_S, (sbyte)RoleTypeId.Tutorial),
                     new(OpCodes.Bne_Un_S, skip),
 
-                    // if (!ExiledEvents.Instance.Config.TutorialNotAffectedByScp079Scan)
-                    new(OpCodes.Call, PropertyGetter(typeof(ExiledEvents), nameof(ExiledEvents.Instance))),
+                    // if (!AtomiledEvents.Instance.Config.TutorialNotAffectedByScp079Scan)
+                    new(OpCodes.Call, PropertyGetter(typeof(AtomiledEvents), nameof(AtomiledEvents.Instance))),
                     new(OpCodes.Callvirt, PropertyGetter(typeof(Plugin<Config>), nameof(Plugin<Config>.Config))),
                     new(OpCodes.Callvirt, PropertyGetter(typeof(Config), nameof(Config.TutorialNotAffectedByScp079Scan))),
                     new(OpCodes.Brfalse_S, returnLabel),

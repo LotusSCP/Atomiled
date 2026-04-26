@@ -54,3 +54,4 @@ namespace Atomiled.Events.Patches.Fixes
         private static bool IsFullyOpen(IDamageableDoor damageableDoor) => damageableDoor is BreakableDoor breakableDoor && breakableDoor.GetExactState() is 1;
     }
 }
+

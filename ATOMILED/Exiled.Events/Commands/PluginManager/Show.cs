@@ -81,7 +81,7 @@ namespace Atomiled.Events.Commands.PluginManager
 
                 AppendNewRow().Append("- Author: ").Append(plugin.Author);
                 AppendNewRow().Append("- Version: ").Append(plugin.Version);
-                AppendNewRow().Append("- Required Exiled Version: ").Append(plugin.RequiredExiledVersion);
+                AppendNewRow().Append("- Required Atomiled Version: ").Append(plugin.RequiredAtomiledVersion);
                 AppendNewRow().Append("- Prefix: ").Append(plugin.Prefix);
                 AppendNewRow().Append("- Priority: ").Append(plugin.Priority);
 

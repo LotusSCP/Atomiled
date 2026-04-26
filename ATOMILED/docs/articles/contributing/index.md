@@ -1,16 +1,16 @@
 ---
-title: Contributing to EXILED
+title: Contributing to ATOMILED
 ---
-# Contributing to EXILED
+# Contributing to ATOMILED
 
 This is a simple tutorial guiding you to contribute to our framework.
 
-### Forking EXILED
-First, create a fork of our [GitHub repository](https://github.com/Exmod-Team/EXILED).
+### Forking ATOMILED
+First, create a fork of our [GitHub repository](https://github.com/Exmod-Team/ATOMILED).
 
-Then, clone it to your computer like so: `git clone https://github.com/your-username/EXILED.git`
+Then, clone it to your computer like so: `git clone https://github.com/your-username/ATOMILED.git`
 
-Open a terminal in your forked EXILED folder and run ```git checkout dev```. This will switch you to the dev branch, which all pull requests should be submitted to.
+Open a terminal in your forked ATOMILED folder and run ```git checkout dev```. This will switch you to the dev branch, which all pull requests should be submitted to.
 
 ### Setting `EXILED_REFERENCES`
 
@@ -30,9 +30,9 @@ PATH should point to `your_steamapps_directory/common/SCP Secret Laboratory Dedi
 
 ---
 
-You should now be able to open the EXILED directory in your favorite IDE.
+You should now be able to open the ATOMILED directory in your favorite IDE.
 
 
-Once you are done, test your changes thoroughly, and then submit a pull request to the main EXILED repository. Make sure you are targeting the `dev` branch, not `master`!
+Once you are done, test your changes thoroughly, and then submit a pull request to the main ATOMILED repository. Make sure you are targeting the `dev` branch, not `master`!
 
 Happy coding!

@@ -61,3 +61,4 @@ namespace Atomiled.Events.EventArgs.Scp049
         public Ragdoll Ragdoll { get; }
     }
 }
+

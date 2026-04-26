@@ -9,6 +9,9 @@ namespace Atomiled.Events.Handlers
 {
     using System;
 
+    using Atomiled.API.Enums;
+    using Atomiled.API.Features;
+
 #pragma warning disable IDE0079
 #pragma warning disable IDE0060
 #pragma warning disable SA1623 // Property summary documentation should match accessors
@@ -16,6 +19,7 @@ namespace Atomiled.Events.Handlers
     using Atomiled.Events.EventArgs.Player;
 
     using Atomiled.Events.Features;
+
     using LabApi.Events.Arguments.PlayerEvents;
 
     /// <summary>
@@ -276,6 +280,16 @@ namespace Atomiled.Events.Handlers
         public static Event<ShootingEventArgs> Shooting { get; set; } = new();
 
         /// <summary>
+        /// Invoked before a <see cref="API.Features.Player"/> sends a gun sound to nearby players.
+        /// </summary>
+        public static Event<SendingGunSoundEventArgs> SendingGunSound { get; set; } = new();
+
+        /// <summary>
+        /// Invoked before a <see cref="API.Features.Player"/> receives a gun sound.
+        /// </summary>
+        public static Event<ReceivingGunSoundEventArgs> ReceivingGunSound { get; set; } = new();
+
+        /// <summary>
         /// Invoked before a <see cref="API.Features.Player"/> enters the pocket dimension.
         /// </summary>
         public static Event<EnteringPocketDimensionEventArgs> EnteringPocketDimension { get; set; } = new();
@@ -333,6 +347,7 @@ namespace Atomiled.Events.Handlers
         /// <summary>
         /// Invoked before a <see cref="API.Features.Player"/> interacts with a door.
         /// </summary>
+        /// <seealso cref="Handlers.Item.KeycardInteracting"/>
         public static Event<InteractingDoorEventArgs> InteractingDoor { get; set; } = new();
 
         /// <summary>
@@ -471,6 +486,11 @@ namespace Atomiled.Events.Handlers
         public static Event<VoiceChattingEventArgs> VoiceChatting { get; set; } = new();
 
         /// <summary>
+        /// Invoked before a <see cref="API.Features.Player"/> receives a voice message.
+        /// </summary>
+        public static Event<ReceivingVoiceMessageEventArgs> ReceivingVoiceMessage { get; set; } = new();
+
+        /// <summary>
         /// Invoked before a <see cref="API.Features.Player"/> makes noise.
         /// </summary>
         public static Event<MakingNoiseEventArgs> MakingNoise { get; set; } = new();
@@ -504,6 +524,11 @@ namespace Atomiled.Events.Handlers
         /// Invoked when a <see cref="API.Features.Player"/> changes rooms.
         /// </summary>
         public static Event<RoomChangedEventArgs> RoomChanged { get; set; } = new();
+
+        /// <summary>
+        /// Invoked when a <see cref="API.Features.Player"/> changes zones.
+        /// </summary>
+        public static Event<ZoneChangedEventArgs> ZoneChanged { get; set; } = new();
 
         /// <summary>
         /// Invoked before a <see cref="API.Features.Player"/> toggles the NoClip mode.
@@ -541,12 +566,12 @@ namespace Atomiled.Events.Handlers
         public static Event<DamagingDoorEventArgs> DamagingDoor { get; set; } = new();
 
         /// <summary>
-        /// Invoked after a <see cref="T:Exiled.API.Features.Player" /> has an item added to their inventory.
+        /// Invoked after a <see cref="T:Atomiled.API.Features.Player" /> has an item added to their inventory.
         /// </summary>
         public static Event<ItemAddedEventArgs> ItemAdded { get; set; } = new();
 
         /// <summary>
-        /// Invoked after a <see cref="T:Exiled.API.Features.Player" /> has an item removed from their inventory.
+        /// Invoked after a <see cref="T:Atomiled.API.Features.Player" /> has an item removed from their inventory.
         /// </summary>
         public static Event<ItemRemovedEventArgs> ItemRemoved { get; set; } = new();
 
@@ -620,6 +645,11 @@ namespace Atomiled.Events.Handlers
         /// Invoked before Emergency Release Button is pressed.
         /// </summary>
         public static Event<InteractingEmergencyButtonEventArgs> InteractingEmergencyButton { get; set; } = new();
+
+        /// <summary>
+        /// Invoked after transmission has ended.
+        /// </summary>
+        public static Event<Scp1576TransmissionEndedEventArgs> Scp1576TransmissionEnded { get; set; } = new();
 
         /// <summary>
         /// Called before a player's emotion changed.
@@ -830,7 +860,25 @@ namespace Atomiled.Events.Handlers
         /// Called when a <see cref="API.Features.Player"/> changes rooms.
         /// </summary>
         /// <param name="ev">The <see cref="RoomChangedEventArgs"/> instance.</param>
-        public static void OnRoomChanged(RoomChangedEventArgs ev) => RoomChanged.InvokeSafely(ev);
+        public static void OnRoomChanged(RoomChangedEventArgs ev)
+        {
+            RoomChanged.InvokeSafely(ev);
+
+            if (!ZoneChanged.Patched)
+                return;
+
+            ZoneType oldZone = ev.OldRoom?.Zone ?? ZoneType.Unspecified;
+            ZoneType newZone = ev.NewRoom?.Zone ?? ZoneType.Unspecified;
+
+            if (oldZone != newZone)
+                OnZoneChanged(new ZoneChangedEventArgs(ev.Player, ev.OldRoom, ev.NewRoom, oldZone, newZone));
+        }
+
+        /// <summary>
+        /// Called when a <see cref="API.Features.Player"/> changes zones.
+        /// </summary>
+        /// <param name="ev">The <see cref="ZoneChangedEventArgs"/> instance.</param>
+        public static void OnZoneChanged(ZoneChangedEventArgs ev) => ZoneChanged.InvokeSafely(ev);
 
         /// <summary>
         /// Called before a <see cref="API.Features.Player"/> escapes.
@@ -863,6 +911,18 @@ namespace Atomiled.Events.Handlers
         public static void OnShooting(ShootingEventArgs ev) => Shooting.InvokeSafely(ev);
 
         /// <summary>
+        /// Called before the server sends a gun sound to nearby players.
+        /// </summary>
+        /// <param name="ev">The <see cref="SendingGunSoundEventArgs"/> instance.</param>
+        public static void OnSendingGunSound(SendingGunSoundEventArgs ev) => SendingGunSound.InvokeSafely(ev);
+
+        /// <summary>
+        /// Called when a <see cref="API.Features.Player"/> receives a gun sound.
+        /// </summary>
+        /// <param name="ev">The <see cref="ReceivingGunSoundEventArgs"/> instance.</param>
+        public static void OnReceivingGunSound(ReceivingGunSoundEventArgs ev) => ReceivingGunSound.InvokeSafely(ev);
+
+        /// <summary>
         /// Called before a <see cref="API.Features.Player"/> enters the pocket dimension.
         /// </summary>
         /// <param name="ev">The <see cref="EnteringPocketDimensionEventArgs"/> instance.</param>
@@ -892,9 +952,12 @@ namespace Atomiled.Events.Handlers
         /// <param name="ev">The <see cref="ReloadingWeaponEventArgs"/> instance.</param>
         public static void OnReloadingWeapon(PlayerReloadingWeaponEventArgs ev)
         {
-            ReloadingWeaponEventArgs exiledEv = new(ev.FirearmItem.Base, ev.IsAllowed);
-            ReloadingWeapon.InvokeSafely(exiledEv);
-            ev.IsAllowed = exiledEv.IsAllowed;
+            if (!ReloadingWeapon.Patched)
+                return;
+
+            ReloadingWeaponEventArgs AtomiledEv = new(ev.FirearmItem.Base, ev.IsAllowed);
+            ReloadingWeapon.InvokeSafely(AtomiledEv);
+            ev.IsAllowed = AtomiledEv.IsAllowed;
         }
 
         /// <summary>
@@ -1005,9 +1068,12 @@ namespace Atomiled.Events.Handlers
         /// <param name="ev">The <see cref="UnloadingWeaponEventArgs"/> instance.</param>
         public static void OnUnloadingWeapon(PlayerUnloadingWeaponEventArgs ev)
         {
-            UnloadingWeaponEventArgs exiledEv = new(ev.FirearmItem.Base, ev.IsAllowed);
-            UnloadingWeapon.InvokeSafely(exiledEv);
-            ev.IsAllowed = exiledEv.IsAllowed;
+            if (!UnloadingWeapon.Patched)
+                return;
+
+            UnloadingWeaponEventArgs AtomiledEv = new(ev.FirearmItem.Base, ev.IsAllowed);
+            UnloadingWeapon.InvokeSafely(AtomiledEv);
+            ev.IsAllowed = AtomiledEv.IsAllowed;
         }
 
         /// <summary>
@@ -1039,6 +1105,12 @@ namespace Atomiled.Events.Handlers
         /// </summary>
         /// <param name="ev">The <see cref="VoiceChattingEventArgs"/> instance.</param>
         public static void OnVoiceChatting(VoiceChattingEventArgs ev) => VoiceChatting.InvokeSafely(ev);
+
+        /// <summary>
+        /// Invoked before a <see cref="API.Features.Player"/> receives a voice message.
+        /// </summary>
+        /// <param name="ev">The <see cref="ReceivingVoiceMessageEventArgs"/> instance.</param>
+        public static void OnReceivingVoiceMessage(ReceivingVoiceMessageEventArgs ev) => ReceivingVoiceMessage.InvokeSafely(ev);
 
         /// <summary>
         /// Called before a <see cref="API.Features.Player"/> makes noise.
@@ -1107,7 +1179,7 @@ namespace Atomiled.Events.Handlers
         public static void OnSendingAdminChatMessage(SendingAdminChatMessageEventsArgs ev) => SendingAdminChatMessage.InvokeSafely(ev);
 
         /// <summary>
-        /// Called after a <see cref="T:Exiled.API.Features.Player" /> has an item added to their inventory.
+        /// Called after a <see cref="T:Atomiled.API.Features.Player" /> has an item added to their inventory.
         /// </summary>
         /// <param name="referenceHub">The <see cref="ReferenceHub"/> the item was added to.</param>
         /// <param name="itemBase">The added <see cref="InventorySystem.Items.ItemBase"/>.</param>
@@ -1124,7 +1196,7 @@ namespace Atomiled.Events.Handlers
         }
 
         /// <summary>
-        /// Called after a <see cref="T:Exiled.API.Features.Player" /> has an item removed from their inventory.
+        /// Called after a <see cref="T:Atomiled.API.Features.Player" /> has an item removed from their inventory.
         /// </summary>
         /// <param name="referenceHub">The <see cref="ReferenceHub"/> the item was removed from.</param>
         /// <param name="itemBase">The removed <see cref="InventorySystem.Items.ItemBase"/>.</param>
@@ -1356,5 +1428,12 @@ namespace Atomiled.Events.Handlers
         /// </summary>
         /// <param name="ev">The <see cref="InteractingEmergencyButtonEventArgs"/> instance.</param>
         public static void OnInteractingEmergencyButton(InteractingEmergencyButtonEventArgs ev) => InteractingEmergencyButton.InvokeSafely(ev);
+
+        /// <summary>
+        /// Called after a 1576 transmisiion has ended.
+        /// </summary>
+        /// <param name="ev">The <see cref="Scp1576TransmissionEndedEventArgs"/> instance.</param>
+        public static void OnScp1576TransmissionEnded(Scp1576TransmissionEndedEventArgs ev) => Scp1576TransmissionEnded.InvokeSafely(ev);
     }
 }
+

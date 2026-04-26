@@ -18,3 +18,4 @@ namespace Atomiled.Events.EventArgs.Warhead
         public bool IsAllowed { get; set; } = true;
     }
 }
+

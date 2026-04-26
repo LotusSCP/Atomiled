@@ -13,7 +13,7 @@ namespace Atomiled.Events.EventArgs.Player
     /// <summary>
     /// Contains all information when checking if a player has a reserved slot.
     /// </summary>
-    public class ReservedSlotsCheckEventArgs : IExiledEvent, IDeniableEvent
+    public class ReservedSlotsCheckEventArgs : IAtomiledEvent, IDeniableEvent
     {
         private ReservedSlotEventResult reservedSlotEventResult = ReservedSlotEventResult.UseBaseGameSystem;
 
@@ -76,3 +76,4 @@ namespace Atomiled.Events.EventArgs.Player
         }
     }
 }
+

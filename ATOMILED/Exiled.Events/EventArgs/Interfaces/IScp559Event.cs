@@ -12,8 +12,8 @@ namespace Atomiled.Events.EventArgs.Interfaces
     /// <summary>
     /// Defines the base contract for all <see cref="Scp559Cake"/> related events.
     /// </summary>
-    // [Obsolete("Only availaible for Christmas and AprilFools.")]
-    public interface IScp559Event : IExiledEvent
+    [Obsolete("Only availaible for Christmas and AprilFools.")]
+    public interface IScp559Event : IAtomiledEvent
     {
         /// <summary>
         /// Gets the <see cref="API.Features.Scp559"/>.

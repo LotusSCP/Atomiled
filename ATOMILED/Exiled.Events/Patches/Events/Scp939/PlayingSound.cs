@@ -118,3 +118,4 @@ namespace Atomiled.Events.Patches.Events.Scp939
         private static void ServerSendRpc(EnvironmentalMimicry instance) => instance.ServerSendRpc(true);
     }
 }
+

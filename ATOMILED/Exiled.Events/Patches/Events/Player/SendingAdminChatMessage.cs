@@ -94,7 +94,7 @@ namespace Atomiled.Events.Patches.Events.Player
         {
             if (player == null)
                 return;
-            player.RemoteAdminMessage("AdminChatMessage Cancel by a plugin", false, "EXILED:Event");
+            player.RemoteAdminMessage("AdminChatMessage Cancel by a plugin", false, "ATOMILED:Event");
         }
     }
 }

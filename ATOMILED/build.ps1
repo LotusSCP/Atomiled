@@ -5,14 +5,14 @@ param (
 )
 
 $Projects = @(
-    'Exiled.Loader',
-    'Exiled.API',
-    'Exiled.Permissions',
-    'Exiled.Events',
-    'Exiled.CreditTags',
-    'Exiled.Example',
-    'Exiled.CustomItems',
-    'Exiled.CustomRoles'
+    'Atomiled.Loader',
+    'Atomiled.API',
+    'Atomiled.Permissions',
+    'Atomiled.Events',
+    'Atomiled.CreditTags',
+    'Atomiled.Example',
+    'Atomiled.CustomItems',
+    'Atomiled.CustomRoles'
 )
 
 function Execute {
@@ -33,7 +33,7 @@ function CheckLastOperationStatus {
 }
 
 function GetSolutionVersion {
-    [XML]$PropsFile = Get-Content Exiled.props
+    [XML]$PropsFile = Get-Content Atomiled.props
     $Version = $PropsFile.Project.PropertyGroup[2].Version
     $Version = $Version.'#text'.Trim()
     return $Version
@@ -50,5 +50,6 @@ if ($BuildNuGet) {
 
     Write-Host "Generating NuGet package for version $Version"
 
-    nuget pack Exiled/Exiled.nuspec -Version $Version -Properties Year=$Year
+    nuget pack Atomiled/Atomiled.nuspec -Version $Version -Properties Year=$Year
 }
+

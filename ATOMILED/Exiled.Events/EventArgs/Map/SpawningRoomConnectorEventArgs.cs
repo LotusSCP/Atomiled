@@ -56,3 +56,4 @@ namespace Atomiled.Events.EventArgs.Map
         public bool IsAllowed { get; set; } = true;
     }
 }
+

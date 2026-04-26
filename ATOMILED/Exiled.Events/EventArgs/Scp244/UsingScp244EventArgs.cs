@@ -54,3 +54,4 @@ namespace Atomiled.Events.EventArgs.Scp244
         public Player Player { get; }
     }
 }
+

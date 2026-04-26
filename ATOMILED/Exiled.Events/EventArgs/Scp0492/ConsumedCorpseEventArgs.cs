@@ -51,3 +51,4 @@ namespace Atomiled.Events.EventArgs.Scp0492
         public float ConsumeHeal { get; set; } = ZombieConsumeAbility.ConsumeHeal;
     }
 }
+

@@ -1,0 +1,13 @@
+{
+  "profiles": {
+    "docs": {
+      "commandName": "Project"
+    },
+    "1 Profili": {
+      "commandName": "Executable"
+    },
+    "3 Profili": {
+      "commandName": "Project"
+    }
+  }
+}

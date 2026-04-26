@@ -25,3 +25,4 @@ namespace Atomiled.Events.Handlers.Internal
         public static void OnRemovedAdminToys(AdminToys.AdminToyBase adminToy) => API.Features.Toys.AdminToy.BaseToAdminToy.Remove(adminToy);
     }
 }
+

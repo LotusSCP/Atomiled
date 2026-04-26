@@ -12,7 +12,7 @@ namespace Atomiled.Events.EventArgs.Interfaces
     /// <summary>
     /// Event args used for all <see cref="API.Features.Camera" /> related events.
     /// </summary>
-    public interface ICameraEvent : IExiledEvent
+    public interface ICameraEvent : IAtomiledEvent
     {
         /// <summary>
         /// Gets or sets the <see cref="API.Features.Camera" /> triggering the event.

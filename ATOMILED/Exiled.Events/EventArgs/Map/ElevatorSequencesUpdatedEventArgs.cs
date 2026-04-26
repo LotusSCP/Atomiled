@@ -14,7 +14,7 @@ namespace Atomiled.Events.EventArgs.Map
     /// <summary>
     /// Contains all information after an elevator sequence is updated.
     /// </summary>
-    public class ElevatorSequencesUpdatedEventArgs : IExiledEvent
+    public class ElevatorSequencesUpdatedEventArgs : IAtomiledEvent
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ElevatorSequencesUpdatedEventArgs"/> class.

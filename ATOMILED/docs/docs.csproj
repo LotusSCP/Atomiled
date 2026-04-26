@@ -12,7 +12,7 @@
 
     <ItemGroup>
         <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
-            <_Parameter1>Exiled.API</_Parameter1>
+            <_Parameter1>Atomiled.API</_Parameter1>
         </AssemblyAttribute>
     </ItemGroup>
 
@@ -53,3 +53,4 @@
     </ItemGroup>
 
 </Project>
+

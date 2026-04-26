@@ -12,7 +12,7 @@ namespace Atomiled.Events.EventArgs.Interfaces
     /// <summary>
     /// Event args used for all <see cref="API.Features.Ragdoll" /> related events.
     /// </summary>
-    public interface IRagdollEvent : IExiledEvent
+    public interface IRagdollEvent : IAtomiledEvent
     {
         /// <summary>
         /// Gets the <see cref="API.Features.Ragdoll" /> triggering the event.

@@ -21,13 +21,13 @@
   ],
   "build": {
      "globalMetadata": {
-      "_appTitle": "EXILED",
-      "_appLogoPath": "assets/exiled.png",
+      "_appTitle": "ATOMILED",
+      "_appLogoPath": "assets/Atomiled.png",
       "_appFaviconPath": "assets/favicon.ico",
       "_enableSearch": true,
       "_lang": "en",
       "_gitContribute": {
-        "repo": "https://github.com/Exmod-Team/EXILED",
+        "repo": "https://github.com/Exmod-Team/ATOMILED",
         "branch": "dev"
       }
     },
@@ -59,3 +59,4 @@
     "docfx": "SGVsbG8sIHRoaXMgd2FzIG1hZGUgYnkgamVzdXNxYywgaG9wZSB5b3UgYXJlIG5vdCBjb3B5aW5nIHRoaXMgYmVjYXVzZSBpdCB3b3VsZCBiZSBoaWxhcmlvdXMg8J+YrfCfmK3wn5it8J+YrQ=="
   }
 }
+

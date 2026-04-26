@@ -256,3 +256,4 @@ namespace Atomiled.Events.Handlers
         public static void OnCompletingObjective(CompletingObjectiveEventArgs ev) => CompletingObjective.InvokeSafely(ev);
     }
 }
+

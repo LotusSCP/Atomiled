@@ -51,3 +51,4 @@ namespace Atomiled.Events.Handlers
         public static void OnConsumingCorpse(ConsumingCorpseEventArgs ev) => ConsumingCorpse.InvokeSafely(ev);
     }
 }
+

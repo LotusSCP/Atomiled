@@ -20,7 +20,7 @@ namespace Atomiled.Events.Patches.Generic
 
     using static HarmonyLib.AccessTools;
 
-    using ExiledEvents = Atomiled.Events.Events;
+    using AtomiledEvents = Atomiled.Events.Events;
     using Scp096Role = API.Features.Roles.Scp096Role;
 
     /// <summary>
@@ -46,7 +46,7 @@ namespace Atomiled.Events.Patches.Generic
 
             newInstructions[0].labels.Add(continueLabel);
 
-            // if (referenceHub.roleManager.CurrentRole.RoleTypeId == RoleTypeId.Tutorial && !ExiledEvents.Instance.Config.CanTutorialTriggerScp096
+            // if (referenceHub.roleManager.CurrentRole.RoleTypeId == RoleTypeId.Tutorial && !AtomiledEvents.Instance.Config.CanTutorialTriggerScp096
             // || Scp096Role.TurnedPlayers.Contains(Player.Get(referenceHub)))
             //      return false;
             newInstructions.InsertRange(
@@ -61,8 +61,8 @@ namespace Atomiled.Events.Patches.Generic
                     new(OpCodes.Ldc_I4_S, (sbyte)RoleTypeId.Tutorial),
                     new(OpCodes.Bne_Un_S, secondCheckPointer),
 
-                    // !ExiledEvents.Instance.Config.CanTutorialTriggerScp096)
-                    new(OpCodes.Call, PropertyGetter(typeof(ExiledEvents), nameof(ExiledEvents.Instance))),
+                    // !AtomiledEvents.Instance.Config.CanTutorialTriggerScp096)
+                    new(OpCodes.Call, PropertyGetter(typeof(AtomiledEvents), nameof(AtomiledEvents.Instance))),
                     new(OpCodes.Callvirt, PropertyGetter(typeof(Plugin<Config>), nameof(Plugin<Config>.Config))),
                     new(OpCodes.Callvirt, PropertyGetter(typeof(Config), nameof(Config.CanTutorialTriggerScp096))),
                     new(OpCodes.Brfalse_S, returnLabel),

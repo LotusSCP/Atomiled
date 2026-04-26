@@ -84,3 +84,4 @@ namespace Atomiled.Events.Handlers
         public static void OnAttacking(AttackingEventArgs ev) => Attacking.InvokeSafely(ev);
     }
 }
+

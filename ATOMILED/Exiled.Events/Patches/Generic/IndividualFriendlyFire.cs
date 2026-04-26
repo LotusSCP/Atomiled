@@ -16,6 +16,7 @@ namespace Atomiled.Events.Patches.Generic
 
     using API.Features;
     using API.Features.Pools;
+    using Atomiled.API.Features.Items;
 
     using Footprinting;
 
@@ -122,6 +123,12 @@ namespace Atomiled.Events.Patches.Generic
                 if (attacker == victim)
                 {
                     Log.Debug("CheckFriendlyFirePlayerRules, Attacker player was equal to Victim, likely suicide");
+                    return true;
+                }
+
+                if (victim.CurrentItem is Marshmallow { Evil: true })
+                {
+                    Log.Debug("CheckFriendlyFirePlayerRules, NW Fix victim not getting hit");
                     return true;
                 }
 

@@ -32,20 +32,20 @@ namespace Atomiled.Events.Patches.Events.Player
         {
             List<CodeInstruction> newInstructions = ListPool<CodeInstruction>.Pool.Get(instructions);
 
-            Label callExiledEvent = generator.DefineLabel();
+            Label callAtomiledEvent = generator.DefineLabel();
 
             for (int i = 0; i < newInstructions.Count; i++)
             {
                 if (newInstructions[i].opcode == OpCodes.Ret)
                 {
-                    newInstructions[i] = new(OpCodes.Br, callExiledEvent);
+                    newInstructions[i] = new(OpCodes.Br, callAtomiledEvent);
                 }
             }
 
             newInstructions.InsertRange(newInstructions.Count - 1, new[]
             {
                 // flag is already loaded
-                new CodeInstruction(OpCodes.Ldarg_0).WithLabels(callExiledEvent),
+                new CodeInstruction(OpCodes.Ldarg_0).WithLabels(callAtomiledEvent),
 
                 // ReservedSlotCheckEventArgs ev = new(flag, userid);
                 new(OpCodes.Newobj, GetDeclaredConstructors(typeof(ReservedSlotsCheckEventArgs))[0]),

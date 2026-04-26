@@ -77,3 +77,4 @@ namespace Atomiled.Events.EventArgs.Player
         public ICommand Command { get; }
     }
 }
+
