@@ -1,6 +1,6 @@
 
-[![Version](https://img.shields.io/github/v/release/dragonscpscpsl/Atomiled?sort=semver&label=Version)](https://github.com/dragonscpscpsl/Atomiled/releases/)
-[![Downloads](https://img.shields.io/github/downloads/dragonscpscpsl/Atomiled/total?label=Downloads)](https://github.com/dragonscpscpsl/Atomiled/releases/)
+[![Version](https://img.shields.io/github/v/release/LotusSCP/Atomiled?sort=semver&label=Version)](https://github.com/LotusSCP/Atomiled/releases/)
+[![Downloads](https://img.shields.io/github/downloads/LotusSCP/Atomiled/total?label=Downloads)](https://github.com/LotusSCP/Atomiled/releases/)
 
 # Atomiled
 ------------
